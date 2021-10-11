@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{msgA}}</div>
+        <div>{{msgB}}</div>
+        <button v-on:click="changeMessage">change!</button>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msgA: 'Message A.',
+                msgB: '',
+            },
+            methods: {
+                changeMessage () {
+                    this.msgA = 'Changed message A!'
+                    this.msgB = 'Changed message B!'
+                }
+            },
+            // 계산된 데이터
+            computed: {},
+            // msgA가 변경 될떄 마다 msgA() 실행
+            watch: {
+                msgA (value) {
+                    console.log(value)
+                },
+            },
+            created() {
+                
+            },
+            mounted () {
+
+            }
+        })
+        console.log(vm.msgA)
+    </script>
+</body>
+</html>

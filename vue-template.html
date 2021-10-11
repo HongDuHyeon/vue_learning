@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <style>
+        .normal {
+            color: blue;
+        }
+        .active {
+            color: red;
+        }
+    </style>
+    <div id="app">
+        <!-- v-bind 약어 >>> : -->
+        <!-- v-on 약어 >>> @ -->
+        <div :class="className"
+        @click="changeClassName">
+         {{msg}}
+        </div>
+
+        <!-- 특정한 태그를 삽입해야할떄 v-html -->
+        <div v-html="msg"> {{msg}}</div>
+        <div>{{number + 2}}</div>
+        <div>{{ new Date()}}</div>
+        <div>{{ Math.round(1.7)}}</div>
+        
+    </div>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                msg: 'hello vue! <br/> good job~',
+                number: 2,
+                className: 'normal'
+            },
+            methods: {
+                changeClassName () {
+                    this.className = 'active'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
